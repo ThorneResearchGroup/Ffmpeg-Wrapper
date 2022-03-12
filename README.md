@@ -1,1 +1,1 @@
-A wrapper to run FFMPEG in Java
+TRG skeleton for wrappers
