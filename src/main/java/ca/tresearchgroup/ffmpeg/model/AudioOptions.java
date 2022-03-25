@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -18,13 +18,10 @@ public class AudioOptions {
     private String ac;
 
     @CommandLine.Option(names = "-an", description = "Disable audio")
-    private String an;
+    private boolean an;
 
     @CommandLine.Option(names = "-acodec", description = "Force audio codec")
     private String acodec;
-
-    @CommandLine.Option(names = "-vol", description = "Change audio volume (256 = normal)")
-    private String vol;
 
     @CommandLine.Option(names = "-af", description = "Set audio filters")
     private String af;

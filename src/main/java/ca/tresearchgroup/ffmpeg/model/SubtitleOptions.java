@@ -1,13 +1,10 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
 
 @Data
 public class SubtitleOptions {
-    @CommandLine.Option(names = "-s", description = "Set frame size (WxH or abbreviation")
-    private String s;
-
     @CommandLine.Option(names = "-sn", description = "Disable subtitle")
     private String sn;
 

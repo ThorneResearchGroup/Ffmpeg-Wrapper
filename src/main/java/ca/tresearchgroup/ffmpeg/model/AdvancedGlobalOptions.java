@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -12,7 +12,7 @@ public class AdvancedGlobalOptions {
     private String cpuCount;
 
     @CommandLine.Option(names = "-hide_banner", description = "Do not show program banner")
-    private boolean generateReport;
+    private boolean hideBanner;
 
     @CommandLine.Option(names = "-copy_unknown", description = "Copy unknown stream types")
     private boolean copyUnknown;
@@ -118,4 +118,7 @@ public class AdvancedGlobalOptions {
 
     @CommandLine.Option(names = "-filter_hw_device", description = "Set hardware device used when filtering")
     private String filterHwDevice;
+
+    @CommandLine.Option(names = "-s", description = "Set frame size (WxH or abbreviation")
+    private String s;
 }

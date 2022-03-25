@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -24,7 +24,7 @@ public class GlobalOptions {
     private boolean filterThreads;
 
     @CommandLine.Option(names = "-filter_complex_threads", description = "Number of threads for -filter_complex")
-    private boolean showLicense;
+    private boolean filterComplexThreads;
 
     @CommandLine.Option(names = "-stats", description = "Print progress report during encoding")
     private boolean printStats;
@@ -34,4 +34,7 @@ public class GlobalOptions {
 
     @CommandLine.Option(names = "-vol", description = "Change audio volume")
     private String volume;
+
+    @CommandLine.Option(names = "-i", description = "Set input file")
+    private String input;
 }

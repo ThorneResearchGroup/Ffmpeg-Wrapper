@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -9,7 +9,7 @@ public class InformationOptions {
     private boolean showLicense;
 
     @CommandLine.Option(names = {"-h", "-?", "-help", "--help"}, description = "Show help")
-    private String showHelp;
+    private boolean showHelp;
 
     @CommandLine.Option(names = "-version", description = "Show version")
     private boolean showVersion;

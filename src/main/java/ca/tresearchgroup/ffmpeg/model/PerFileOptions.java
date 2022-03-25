@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -63,7 +63,7 @@ public class PerFileOptions {
     private boolean reinitFilter;
 
     @CommandLine.Option(names = "-discard", description = "Discard")
-    private boolean showLicense;
+    private boolean discard;
 
     @CommandLine.Option(names = "-disposition", description = "Disposition")
     private boolean disposition;

@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -14,19 +14,7 @@ public class AdvancedVideoOptions {
     @CommandLine.Option(names = "-passlogfile", description = "Select two pass log file name prefix")
     private String passLogFile;
 
-    @CommandLine.Option(names = "-psnr", description = "Calculate PSNR of compressed frames")
-    private boolean psnr;
-
-    @CommandLine.Option(names = "-vstats", description = "Dump video coding statistics to file")
-    private boolean vStats;
-
-    @CommandLine.Option(names = "-vstats_file", description = "Dump video coding statistics to file")
-    private String vStatsFile;
-
-    @CommandLine.Option(names = "-vstats_version", description = "Version of the vstats format to use")
-    private boolean vStatsVersion;
-
-    @CommandLine.Option(names = "-inter_matrix", description = "Specify inter matrix coefficients")
+    @CommandLine.Option(names = "-intra_matrix", description = "Specify inter matrix coefficients")
     private String intraMatrix;
 
     @CommandLine.Option(names = "-chroma_intra_matrix", description = "Specify intra matrix coefficients")
@@ -37,9 +25,6 @@ public class AdvancedVideoOptions {
 
     @CommandLine.Option(names = "-vtag", description = "force video tag / fourcc")
     private String vTag;
-
-    @CommandLine.Option(names = "-qphist", description = "Show QP histogram")
-    private boolean qpHist;
 
     @CommandLine.Option(names = "-force_fps", description = "Force the selected framerate, disable the best supported framerate selection")
     private boolean forceFps;

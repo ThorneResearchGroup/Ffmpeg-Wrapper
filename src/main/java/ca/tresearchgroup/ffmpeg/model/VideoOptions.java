@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.view.options;
+package ca.tresearchgroup.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;
@@ -14,11 +14,8 @@ public class VideoOptions {
     @CommandLine.Option(names = "-fpsmax", description = "Set max frame rate (Hz value, fraction or abbreviation)")
     private String fpsMax;
 
-    @CommandLine.Option(names = "-s", description = "Set frame size (WxH or abbreviation)")
-    private String s;
-
     @CommandLine.Option(names = "-aspect", description = "Set aspect ratio")
-    private boolean aspect;
+    private String aspect;
 
     @CommandLine.Option(names = "-vn", description = "Disable video")
     private boolean vn;
@@ -36,7 +33,7 @@ public class VideoOptions {
     private String vf;
 
     @CommandLine.Option(names = "-ab", description = "Audio bitrate")
-    private String accurateSeek;
+    private String ab;
 
     @CommandLine.Option(names = "-b", description = "Video bitrate")
     private String b;
