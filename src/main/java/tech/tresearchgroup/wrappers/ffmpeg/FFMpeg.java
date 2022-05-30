@@ -1,5 +1,6 @@
 package tech.tresearchgroup.wrappers.ffmpeg;
 
+import lombok.Data;
 import picocli.CommandLine;
 import tech.tresearchgroup.wrappers.ffmpeg.controller.*;
 import tech.tresearchgroup.wrappers.ffmpeg.model.*;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+@Data
 @CommandLine.Command(name = "ffmpeg",
         version = "1.0",
         mixinStandardHelpOptions = true,
