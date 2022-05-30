@@ -49,6 +49,8 @@ public class FFMpeg implements Callable<Integer> {
     @CommandLine.ArgGroup
     private SubtitleOptions subtitleOptions;
 
+    boolean debug;
+
     @Override
     public Integer call() {
         List<String> options = new ArrayList<>();
@@ -93,21 +95,34 @@ public class FFMpeg implements Callable<Integer> {
         return -1;
     }
 
-    public static void main(String[] args) {
-        if(args.length > 0) {
-            int exitCode = new CommandLine(new FFMpeg()).execute(args);
-            System.exit(exitCode);
+    public String getOutput(List<String> options) {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command(options);
+        System.out.println(options);
+        try {
+            Process process = processBuilder.start();
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+                if(debug) {
+                    System.out.println(line);
+                }
+            }
+            reader.close();
+
+            process.waitFor();
+            return stringBuilder.toString();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
-        List<String> options = new ArrayList<>();
-        options.add("ffmpeg");
-        GlobalOptions globalOptions = new GlobalOptions();
-        globalOptions.setInput("test.mp4");
-        VideoOptions videoOptions = new VideoOptions();
-        videoOptions.setVCodec("h264");
-        options.addAll(VideoController.getOptions(videoOptions));
-        options.addAll(GlobalController.getOptions(globalOptions));
-        String file = "output.mp4";
-        options.add(file);
-        execute(options);
+        return null;
+    }
+
+    public static void main(String[] args) {
+        int exitCode = new CommandLine(new FFMpeg()).execute(args);
+        System.exit(exitCode);
     }
 }
