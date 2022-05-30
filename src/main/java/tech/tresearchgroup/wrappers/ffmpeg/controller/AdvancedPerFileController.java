@@ -1,6 +1,6 @@
-package ca.tresearchgroup.ffmpeg.controller;
+package tech.tresearchgroup.wrappers.ffmpeg.controller;
 
-import ca.tresearchgroup.ffmpeg.model.AdvancedPerFileOptions;
+import tech.tresearchgroup.wrappers.ffmpeg.model.AdvancedPerFileOptions;
 
 import java.util.ArrayList;
 import java.util.List;

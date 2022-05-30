@@ -1,8 +1,8 @@
-package ca.tresearchgroup.ffmpeg;
+package tech.tresearchgroup.wrappers.ffmpeg;
 
-import ca.tresearchgroup.ffmpeg.controller.*;
-import ca.tresearchgroup.ffmpeg.model.*;
 import picocli.CommandLine;
+import tech.tresearchgroup.wrappers.ffmpeg.controller.*;
+import tech.tresearchgroup.wrappers.ffmpeg.model.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;

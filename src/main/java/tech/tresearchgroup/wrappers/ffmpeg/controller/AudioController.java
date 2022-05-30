@@ -1,6 +1,6 @@
-package ca.tresearchgroup.ffmpeg.controller;
+package tech.tresearchgroup.wrappers.ffmpeg.controller;
 
-import ca.tresearchgroup.ffmpeg.model.AudioOptions;
+import tech.tresearchgroup.wrappers.ffmpeg.model.AudioOptions;
 
 import java.util.ArrayList;
 import java.util.List;

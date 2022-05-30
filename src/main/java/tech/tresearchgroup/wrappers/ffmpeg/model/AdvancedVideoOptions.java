@@ -1,4 +1,4 @@
-package ca.tresearchgroup.ffmpeg.model;
+package tech.tresearchgroup.wrappers.ffmpeg.model;
 
 import lombok.Data;
 import picocli.CommandLine;

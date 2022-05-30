@@ -1,6 +1,6 @@
-package ca.tresearchgroup.ffmpeg.controller;
+package tech.tresearchgroup.wrappers.ffmpeg.controller;
 
-import ca.tresearchgroup.ffmpeg.model.GlobalOptions;
+import tech.tresearchgroup.wrappers.ffmpeg.model.GlobalOptions;
 
 import java.util.ArrayList;
 import java.util.List;
