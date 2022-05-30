@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 
 @Data
 @CommandLine.Command(name = "ffmpeg",
-        version = "1.0",
+        version = "1.1",
         mixinStandardHelpOptions = true,
         description = "TRG FFMpeg wrapper")
 public class FFMpeg implements Callable<Integer> {
