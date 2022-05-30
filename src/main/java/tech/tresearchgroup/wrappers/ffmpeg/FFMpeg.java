@@ -14,7 +14,6 @@ import java.util.concurrent.Callable;
 
 @Data
 @CommandLine.Command(name = "ffmpeg",
-        version = "1.1",
         mixinStandardHelpOptions = true,
         description = "TRG FFMpeg wrapper")
 public class FFMpeg implements Callable<Integer> {
@@ -22,53 +21,13 @@ public class FFMpeg implements Callable<Integer> {
     private String file;
 
     @CommandLine.ArgGroup
-    private InformationOptions informationOptions;
-
-    @CommandLine.ArgGroup
-    private GlobalOptions globalOptions;
-
-    @CommandLine.ArgGroup
-    private AdvancedGlobalOptions advancedGlobalOptions;
-
-    @CommandLine.ArgGroup
-    private PerFileOptions perFileOptions;
-
-    @CommandLine.ArgGroup
-    private AdvancedPerFileOptions advancedPerFileOptions;
-
-    @CommandLine.ArgGroup
-    private VideoOptions videoOptions;
-
-    @CommandLine.ArgGroup
-    private AdvancedVideoOptions advancedVideoOptions;
-
-    @CommandLine.ArgGroup
-    private AudioOptions audioOptions;
-
-    @CommandLine.ArgGroup
-    private AdvancedAudioOptions advancedAudioOptions;
-
-    @CommandLine.ArgGroup
-    private SubtitleOptions subtitleOptions;
+    private FFMpegOptions ffMpegOptions;
 
     boolean debug;
 
     @Override
     public Integer call() {
-        List<String> options = new ArrayList<>();
-        options.add("ffmpeg");
-        options.addAll(AdvancedAudioController.getOptions(advancedAudioOptions));
-        options.addAll(AdvancedGlobalController.getOptions(advancedGlobalOptions));
-        options.addAll(AdvancedPerFileController.getOptions(advancedPerFileOptions));
-        options.addAll(AdvancedVideoController.getOptions(advancedVideoOptions));
-        options.addAll(AudioController.getOptions(audioOptions));
-        options.addAll(GlobalController.getOptions(globalOptions));
-        options.addAll(InformationController.getOptions(informationOptions));
-        options.addAll(PerFileController.getOptions(perFileOptions));
-        options.addAll(SubtitleController.getOptions(subtitleOptions));
-        options.addAll(VideoController.getOptions(videoOptions));
-        options.add(file);
-        return execute(options);
+        return execute(getOptions());
     }
 
     public static int execute(List<String> options) {
@@ -95,6 +54,16 @@ public class FFMpeg implements Callable<Integer> {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public List<String> getOptions() {
+        List<String> options = new ArrayList<>();
+        options.add("ffmpeg");
+        if(ffMpegOptions != null) {
+            options.addAll(FFMpegController.getOptions(ffMpegOptions));
+        }
+        options.add(file);
+        return options;
     }
 
     public String getOutput(List<String> options) {
